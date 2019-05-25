@@ -125,6 +125,7 @@ public class activity_2 extends AppCompatActivity {
          @Override
          public void onClick(View v) {
              Intent i=new Intent(activity_2.this,MainActivity.class);
+             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
              startActivity(i);
 
          }
