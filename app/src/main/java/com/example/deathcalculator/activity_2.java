@@ -25,7 +25,9 @@ public class activity_2 extends AppCompatActivity {
     private ConstraintLayout r;
     private Button replay;
     int d = 0;
-
+    private Button history;
+    int e=0;
+  int f=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class activity_2 extends AppCompatActivity {
         score = (TextView) findViewById(R.id.score);
         r=(ConstraintLayout) findViewById(R.id.r);
         replay=(Button)findViewById(R.id.replay);
+        history=(Button)findViewById(R.id.history);
         replay.setEnabled(false);
      final int getOrientation= getRequestedOrientation();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
@@ -103,6 +106,7 @@ public class activity_2 extends AppCompatActivity {
                         r.setBackgroundColor(Color.parseColor("#388E3C"));
                         setRequestedOrientation(getOrientation);
                         replay.setEnabled(true);
+                        e=e+1;
 
 
                     }
@@ -115,6 +119,7 @@ public class activity_2 extends AppCompatActivity {
                         attempts.setVisibility(View.INVISIBLE);
                         setRequestedOrientation(getOrientation);
                         replay.setEnabled(true);
+                        f=f+1;
                     }
                 }}
 
@@ -128,6 +133,15 @@ public class activity_2 extends AppCompatActivity {
              i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
              startActivity(i);
 
+         }
+     });
+     history.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Intent l=new Intent(activity_2.this,activity3.class);
+             l.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+             l.putExtra("win",e);
+             l.putExtra("loss",f);
          }
      });
 
