@@ -139,7 +139,7 @@ public class activity_2 extends AppCompatActivity {
                     } }
 
             }
-            
+
 
         });
         replay.setOnClickListener(new View.OnClickListener() {
